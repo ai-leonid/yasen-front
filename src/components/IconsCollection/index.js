@@ -57,7 +57,7 @@ export const LineChartIcon = (props) => <LineChartOutlined />;
 export const ListIcon = (props) => <UnorderedListOutlined />;
 export const LocationIcon = (props) => <EnvironmentOutlined />;
 export const MapIcon = (props) => <GlobalOutlined />;
-export const Map2Icon = (props) =><GlobalOutlined />;
+export const Map2Icon = (props) => <GlobalOutlined />;
 export const PhoneIcon = (props) => <PhoneOutlined />;
 export const PieChartIcon = (props) => <PieChartOutlined />;
 export const PlaneIcon = (props) => <RocketOutlined />;
@@ -76,7 +76,9 @@ export const WidgetIcon = (props) => <AppstoreOutlined />;
 // export const LineChartIcon = (props) => <Icon component={LineChart} {...props} />;
 // export const ListIcon = (props) => <Icon component={List} {...props} />;
 // export const LocationIcon = (props) => <Icon component={Location} {...props} />;
-// export const MapIcon = (props) => <Icon component={MapSvg} {...props} style={{ fontSize: '16px', fill: 'none' }} theme="outlined" fill="none"/>;
+// export const MapIcon = (props) =>
+// <Icon component={MapSvg} {...props}
+// style={{ fontSize: '16px', fill: 'none' }} theme="outlined" fill="none"/>;
 // export const Map2Icon = (props) => <Icon component={Map2Svg} {...props} />;
 // export const PhoneIcon = (props) => <Icon component={Phone} {...props} />;
 // export const PieChartIcon = (props) => <Icon component={PieChart} {...props} />;

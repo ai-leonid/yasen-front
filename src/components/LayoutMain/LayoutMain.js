@@ -1,4 +1,6 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+
 import {
   Layout, theme,
 } from 'antd';
@@ -12,7 +14,7 @@ const {
 } = Layout;
 
 
-export function LayoutMain() {
+export function LayoutMain({ children }) {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -45,7 +47,7 @@ export function LayoutMain() {
               borderRadius: 14,
             }}
           >
-            <p>long content</p>
+            {children ?? <Outlet />}
           </div>
         </Content>
       </Layout>

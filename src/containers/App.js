@@ -1,14 +1,21 @@
 import React from 'react';
 import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom';
+
+import {
   ConfigProvider
 } from 'antd';
 import 'antd/dist/reset.css';
 
+import routes from '../modules/routes';
 import themeSettings from '../theme/theme.json';
 
-import { StartPage } from './pages/StartPage';
-
 import './App.css';
+
+
+const router = createBrowserRouter(routes);
 
 
 function App() {
@@ -16,9 +23,7 @@ function App() {
     <ConfigProvider
       theme={themeSettings}
     >
-      <div className="application-root">
-        <StartPage />
-      </div>
+      <RouterProvider router={router} />
     </ConfigProvider>
   );
 }

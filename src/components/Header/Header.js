@@ -1,5 +1,10 @@
 import React from 'react';
 import {
+  Link,
+  useLocation
+} from 'react-router-dom';
+
+import {
   Layout, theme, Menu
 } from 'antd';
 import {
@@ -15,36 +20,41 @@ const { Header: HeaderAntd } = Layout;
 
 const items = [
   {
-    key: 'panels',
-    label: 'Панели',
+    key: '/panels',
+    label: <Link to="panels">Панели</Link>,
     icon: <WidgetIcon />,
   },
   {
-    key: 'data',
-    label: 'Данные',
+    key: '/data',
+    label: <Link to="data">Данные</Link>,
     icon: <DatabaseIcon />,
   },
   {
-    key: 'maps',
-    label: 'Карта',
+    key: '/maps',
+    label: <Link to="map">Карта</Link>,
     icon: <MapIcon />,
   },
   {
-    key: 'reports',
-    label: 'Отчеты',
+    key: '/reports',
+    label: <Link to="reports">Отчеты</Link>,
     icon: <LineChartIcon />,
   },
   {
-    key: 'catalogs',
-    label: 'Справочники',
+    key: '/catalogs',
+    label: <Link to="catalogs">Справочники</Link>,
     icon: <BookIcon />,
   },
 ];
 
 export function Header() {
+  const location = useLocation();
+
+  const defaultSelected = `/${location.pathname.split('/')[1]}`;
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
 
   return (
     <HeaderAntd
@@ -55,7 +65,12 @@ export function Header() {
       }}
     >
       <div className="logo" />
-      <Menu theme="light" mode="horizontal" defaultSelectedKeys={['panels']} items={items} />
+      <Menu
+        theme="light"
+        mode="horizontal"
+        defaultSelectedKeys={defaultSelected}
+        items={items}
+      />
     </HeaderAntd>
   );
 }

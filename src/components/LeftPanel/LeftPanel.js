@@ -1,9 +1,11 @@
-import React from 'react';
-import { Layout, Menu } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Layout, Button, Menu } from 'antd';
+import {
+  Link, matchPath, useLocation, useNavigate, useParams,
+} from 'react-router-dom';
 import 'antd/dist/reset.css';
 
 import { ReactComponent as LogoIcon } from '../../assets/icons/logo.svg';
-
 import {
   BarChartIcon,
   BookIcon,
@@ -27,81 +29,149 @@ const {
 } = Layout;
 
 
-const items = [
+function getItemWithLink(label, key, icon, children, type) {
+  const labelLink = (
+    <Link
+      style={{
+        color: 'inherit',
+      }}
+      to={key}
+    >
+      {label}
+    </Link>
+  );
+  return {
+    key,
+    icon,
+    children,
+    label: labelLink,
+    type,
+  };
+}
+
+function getItem(label, key, icon, children, type) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+
+const itemsPanelsPage = [
+  getItemWithLink('Томская область', '/panels/tomskaya', null, [
+    getItem('Александровское', '/panels/tomskaya/alexandrovskoe'),
+    getItem('Асиновское', '/panels/tomskaya/asinovskoe'),
+    getItem('Бакчарское', '/panels/tomskaya/bakcharskoe'),
+    getItem('Васюганское', '/panels/tomskaya/vasuganskoe'),
+    getItem('Верхнекетское', '/panels/tomskaya/verhneketskoe'),
+    getItem('Зырянское', '/panels/tomskaya/zyranskoe'),
+    getItem('Каргасокское', '/panels/tomskaya/kargasokskoe'),
+    getItem('Кедровское', '/panels/tomskaya/kedrovskoe'),
+    getItem('Кожевниковское', '/panels/tomskaya/kozhevnikovskoe'),
+    getItem('Колпашевское', '/panels/tomskaya/kolpashevskoe'),
+  ]),
+  getItemWithLink('Кемеровская область', '/panels/kemerovskaya', null, [
+    getItem('Беловское', '/panels/kemerovskaya/belovskoe'),
+    getItem('Гурьевское ', '/panels/kemerovskaya/guryevskoe'),
+    getItem('Ижморское ', '/panels/kemerovskaya/izhmorskoe'),
+  ]),
+  getItemWithLink('Красноярский край', '/panels/krasnoyarskii', null, [
+    getItem('Абанское', '/panels/krasnoyarskii/abanskoe'),
+    getItem('Ачинское', '/panels/krasnoyarskii/achinskoe'),
+    getItem('Балахтинское', '/panels/krasnoyarskii/balahtinskoe'),
+  ]),
+];
+
+const itemsDataPage = [
   {
-    key: 'fires',
+    key: '/data/fires',
     label: 'Пожары',
     icon: <FireIcon />,
   },
   {
-    key: 'landscape-fires',
+    key: '/data/landscape-fires',
     label: 'Ландшафтные пожары',
     icon: <CompassIcon />,
   },
   {
-    key: 'fires-rosleskhoz',
+    key: '/data/fires-rosleskhoz',
     label: 'Пожары ИСДМ-Рослесхоз',
     icon: <InfoIcon />,
   },
   {
-    key: 'plan',
+    key: '/data/plan',
     label: 'План налетов',
     icon: <BarChartIcon />,
   },
   {
-    key: 'raids',
+    key: '/data/raids',
     label: 'Налеты',
     icon: <BookIcon />,
   },
   {
-    key: 'weather',
+    key: '/data/weather',
     label: 'Метео',
     icon: <SunIcon />,
   },
   {
-    key: 'tracks',
+    key: '/data/tracks',
     label: 'Треки',
     icon: <LocationIcon />,
   },
   {
-    key: 'contours',
+    key: '/data/contours',
     label: 'Контуры',
     icon: <Map2Icon />,
   },
   {
-    key: 'indicators-of-the-work',
+    key: '/data/indicators-of-the-work',
     label: 'Показатели работы ВС',
     icon: <PieChartIcon />,
   },
   {
-    key: 'availability-of-forces',
+    key: '/data/availability-of-forces',
     label: 'Наличие сил и средств',
     icon: <ShieldIcon />,
   },
   {
-    key: 'form-2',
+    key: '/data/form-2',
     label: 'Форма2-ЛО',
     icon: <DeskIcon />,
   },
   {
-    key: 'emergency-acts',
+    key: '/data/emergency-acts',
     label: 'ЧС. Акты',
     icon: <ListIcon />,
   },
   {
-    key: 'emergency-loss',
+    key: '/data/emergency-loss',
     label: 'ЧС. Потери',
     icon: <CloseCircleIcon />,
   },
   {
-    key: 'journal',
+    key: '/data/journal',
     label: 'Журнал обращения граждан',
     icon: <PhoneIcon />,
   },
 ];
 
-
 export function LeftPanel() {
+  const location = useLocation();
+  const [panelItems, setPanelItems] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (matchPath({ path: '/panels/*' }, location.pathname)) {
+      setPanelItems(itemsPanelsPage);
+    }
+
+    if (matchPath({ path: '/data/*' }, location.pathname)) {
+      setPanelItems(itemsDataPage);
+    }
+  }, [location.pathname]);
+
   return (
     <Sider
       width={283}
@@ -138,7 +208,13 @@ export function LeftPanel() {
           Ясень
         </div>
       </div>
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['fires']} items={items} />
+      <Menu
+        onClick={({ key }) => { navigate(key); }}
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={location.pathname}
+        items={panelItems}
+      />
     </Sider>
   );
 }
