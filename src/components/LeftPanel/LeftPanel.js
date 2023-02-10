@@ -1,33 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Button, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
-  Link, matchPath, useLocation, useNavigate, useParams,
+  Link, matchPath, useLocation, useNavigate,
 } from 'react-router-dom';
-import 'antd/dist/reset.css';
 
 import { ReactComponent as LogoIcon } from '../../assets/icons/logo.svg';
 import {
   BarChartIcon,
-  BookIcon,
   CloseCircleIcon,
   CompassIcon,
   DeskIcon,
   FireIcon,
-  InfoIcon,
+  InfoCircleIcon,
   ListIcon,
   LocationIcon,
   Map2Icon,
   PhoneIcon,
   PieChartIcon,
+  PlaneIcon,
   ShieldIcon,
-  SunIcon,
+  WeatherIcon,
 } from '../IconsCollection';
 
 
 const {
   Sider
 } = Layout;
-
 
 function getItemWithLink(label, key, icon, children, type) {
   const labelLink = (
@@ -98,7 +96,7 @@ const itemsDataPage = [
   {
     key: '/data/fires-rosleskhoz',
     label: 'Пожары ИСДМ-Рослесхоз',
-    icon: <InfoIcon />,
+    icon: <InfoCircleIcon />,
   },
   {
     key: '/data/plan',
@@ -108,12 +106,12 @@ const itemsDataPage = [
   {
     key: '/data/raids',
     label: 'Налеты',
-    icon: <BookIcon />,
+    icon: <PlaneIcon />,
   },
   {
     key: '/data/weather',
     label: 'Метео',
-    icon: <SunIcon />,
+    icon: <WeatherIcon />,
   },
   {
     key: '/data/tracks',

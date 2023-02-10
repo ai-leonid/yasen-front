@@ -54,7 +54,7 @@
     "no-unneeded-ternary": ["warn"],
     "no-unused-expressions": ["warn"],
     "no-use-before-define": ["off"],
-    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-use-before-define": ["off"],
     "no-undef-init": ["warn"],
     "no-unused-vars": ["off"],
     "no-underscore-dangle": ["off"],

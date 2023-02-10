@@ -1,0 +1,22 @@
+@import '../../theme/theme.less';
+
+.count-with-description {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+
+  &:last-child {
+    margin-right: 40px;
+  }
+
+  .count {
+    .font28-36-semi-bold();
+    color: @primaryDarkGray;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    .font14-20-regular();
+    color: @primaryDarkGray;
+  }
+}

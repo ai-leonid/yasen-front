@@ -1,0 +1,2 @@
+export { PanelsTestTimerTab } from './PanelsTestTimerTab';
+

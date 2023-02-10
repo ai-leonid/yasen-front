@@ -1,6 +1,9 @@
 {
   "token": {
     "colorPrimary": "#705ad3",
+    "colorError": "#E5366A",
+    "colorSuccess": "#3AB963",
+    "colorTextBase": "#515151",
     "borderRadius": 8,
     "wireframe": false,
     "colorPrimaryBgHover": "#705AD3",
@@ -8,6 +11,7 @@
     "colorPrimaryActive": "#876DFF",
     "colorPrimaryBg": "#E8E4F8",
     "colorPrimaryBorder": "#eae3fa",
-    "colorTextBase": "#262626"
+    "colorTextBase": "#262626",
+    "fontFamily": "Inter, sans-serif"
   }
 }

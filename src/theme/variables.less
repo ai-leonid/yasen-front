@@ -1,0 +1,92 @@
+
+/*
+Light 300
+Light 300 italic
+Regular 400
+Regular 400 italic
+Medium 500
+Medium 500 italic
+Semi-bold 600
+Semi-bold 600 italic
+Bold 700
+Bold 700 italic
+Extra-bold 800
+Extra-bold 800 italic
+Black 900
+Black 900 italic
+*/
+
+// fonts
+@font-headers: 'Inter', sans-serif;
+@font-content: 'Inter', sans-serif;
+
+
+@systemGreen: #3AB963;
+@systemError: #E5366A;
+
+@primaryBlack: #262626;
+@primaryWhite: #FFFFFF;
+
+@primaryPurple: #705AD3;
+@primaryPurpleLight: #F4F2FC;
+@primaryGray: #7D7D7D;
+@primaryDarkGray: #515151;
+@primaryLightGray: #B3B3B3;
+
+@primaryLine: #EBEBEB;
+@primaryBackground: #F7F7F7;
+
+@boxShadow1: 0px 4px 10px rgba(38, 38, 38, 0.08);
+
+
+
+// breakpoints
+@breakpoint-laptop-large: 1920px; // by design desktop width
+@breakpoint-laptop-medium: 1600px; //key breakpoint
+@breakpoint-laptop-small: 1200px;
+
+@breakpoint-tablet-last: 1199px; // last breakpoint
+@breakpoint-tablet-large: 1024px; // by design tablet width
+@breakpoint-tablet-medium: 992px;
+@breakpoint-tablet-small: 768px;
+
+@breakpoint-mobile-last: 767px; // last breakpoint
+@breakpoint-mobile-large: 576px; //key breakpoint
+@breakpoint-mobile-medium: 480px;
+@breakpoint-mobile-small: 375px; // by design phone width
+
+/*
+    antd breakpoints
+    xs: '480px',
+    sm: '576px',
+
+    md: '768px',
+    lg: '992px',
+
+    xl: '1200px',
+    xxl: '1600px',
+*/
+
+.media(@size, @rules) {
+    @media screen and (max-width: @size) { @rules(); }
+}
+
+/* FROM 768 to 1600 */
+.media-tablet-and-m-laptop(@rules) {
+    @media screen and (min-width: @breakpoint-tablet-small) and (max-width: @breakpoint-laptop-medium) { @rules(); }
+}
+
+/* FROM 0 to 767 */
+.media-mobile-only(@rules) {
+    @media screen and (max-width: @breakpoint-tablet-small - 1) { @rules(); }
+}
+
+/* FROM 768 to 1199 */
+.media-tablet-only(@rules) {
+    @media screen and (min-width: @breakpoint-tablet-small) and (max-width: @breakpoint-laptop-small - 1) { @rules(); }
+}
+
+/* FROM 1200 to infinity */
+.media-laptop-only(@rules) {
+    @media screen and (min-width: @breakpoint-laptop-small) { @rules(); }
+}

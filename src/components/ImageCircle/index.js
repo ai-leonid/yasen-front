@@ -1,0 +1,2 @@
+export { ImageCircle } from './ImageCircle';
+

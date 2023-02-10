@@ -1,0 +1,2 @@
+export { PanelsCommonInfoTab } from './PanelsCommonInfoTab';
+

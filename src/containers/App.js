@@ -12,11 +12,8 @@ import 'antd/dist/reset.css';
 import routes from '../modules/routes';
 import themeSettings from '../theme/theme.json';
 
-import './App.css';
-
 
 const router = createBrowserRouter(routes);
-
 
 function App() {
   return (

@@ -21,12 +21,13 @@ export function LayoutMain({ children }) {
 
 
   return (
-    <Layout hasSider>
+    <Layout hasSider style={{ height: '100%' }}>
       <LeftPanel />
       <Layout
         className="site-layout"
         style={{
           marginLeft: 283,
+          height: '100%',
         }}
       >
         <Header />
@@ -36,19 +37,11 @@ export function LayoutMain({ children }) {
             marginBottom: 24,
             marginLeft: 32,
             marginRight: 24,
+            height: '100%',
             overflow: 'initial',
           }}
         >
-          <div
-            style={{
-              padding: 20,
-              textAlign: 'center',
-              background: colorBgContainer,
-              borderRadius: 14,
-            }}
-          >
-            {children ?? <Outlet />}
-          </div>
+          {children ?? <Outlet />}
         </Content>
       </Layout>
     </Layout>

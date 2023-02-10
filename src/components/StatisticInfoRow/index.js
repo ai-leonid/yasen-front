@@ -1,0 +1,2 @@
+export { StatisticInfoRow } from './StatisticInfoRow';
+
