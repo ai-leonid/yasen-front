@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 
 import {
-  Layout, theme,
+  Layout,
 } from 'antd';
 
 import { Header } from '../Header';
@@ -15,10 +15,6 @@ const {
 
 
 export function LayoutMain({ children }) {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
 
   return (
     <Layout hasSider style={{ height: '100%' }}>

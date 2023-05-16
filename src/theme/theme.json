@@ -4,14 +4,16 @@
     "colorError": "#E5366A",
     "colorSuccess": "#3AB963",
     "colorTextBase": "#515151",
-    "borderRadius": 8,
-    "wireframe": false,
+    "colorLink": "#705AD3",
+    "colorLinkActive": "#614EB8",
+    "colorLinkHover": "#876DFF",
     "colorPrimaryBgHover": "#705AD3",
     "colorPrimaryHover": "#614EB8",
     "colorPrimaryActive": "#876DFF",
     "colorPrimaryBg": "#E8E4F8",
     "colorPrimaryBorder": "#eae3fa",
-    "colorTextBase": "#262626",
+    "borderRadius": 8,
+    "wireframe": false,
     "fontFamily": "Inter, sans-serif"
   }
 }

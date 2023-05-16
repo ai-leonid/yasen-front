@@ -1,0 +1,31 @@
+@import '../../theme/theme.less';
+
+.ysn-tabs {
+  &.ant-tabs .ant-tabs-nav {
+
+    &:before {
+      border-color: transparent;
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active {
+      background-color: @primaryPurple;
+      color: @primaryWhite;
+
+      .ant-tabs-tab-btn {
+        color: inherit;
+      }
+    }
+
+    .ant-tabs-tab {
+      border-radius: 8px;
+      background-color: @primaryWhite;
+      margin-left: 0 !important;
+      border-color: transparent;
+    }
+
+    .ant-tabs-nav-list {
+      background-color: @primaryWhite;
+      border-radius: 8px;
+    }
+  }
+}

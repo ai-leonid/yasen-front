@@ -1,0 +1,2 @@
+export { PanelsForestProtectionTab } from './PanelsForestProtectionTab';
+

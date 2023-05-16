@@ -5,7 +5,6 @@
   font-weight: 600;
   font-size: 28px;
   line-height: 36px;
-  color: @primaryBlack;
   /* identical to box height, or 129% */
 }
 
@@ -16,7 +15,6 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: @primaryBlack;
   /* identical to box height, or 150% */
 }
 
@@ -27,7 +25,6 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  color: @primaryBlack;
   /* identical to box height, or 143% */
 }
 
@@ -38,7 +35,6 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: @primaryDarkGray;
   /* identical to box height, or 143% */
 }
 
@@ -49,6 +45,88 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: @primaryGray;
   /* identical to box height, or 133% */
+}
+
+/*
+@primaryBlack: #262626;
+@primaryWhite: #FFFFFF;
+
+@primaryPurple: #705AD3;
+@primaryPurpleLight: #F4F2FC;
+@primaryGray: #7D7D7D;
+@primaryDarkGray: #515151;
+@primaryLightGray: #B3B3B3;
+
+@primaryLine: #EBEBEB;
+@primaryBackground: #F7F7F7;
+*/
+.colorPrimaryBlack {
+  color: @primaryBlack;
+}
+.colorPrimaryWhite {
+  color: @primaryWhite;
+}
+.colorPrimaryPurple {
+  color: @primaryPurple;
+}
+.colorPrimaryPurpleLight {
+  color: @primaryPurpleLight;
+}
+.colorPrimaryGray {
+  color: @primaryGray;
+}
+.colorPrimaryDarkGray {
+  color: @primaryDarkGray;
+}
+.colorPrimaryLightGray {
+  color: @primaryLightGray;
+}
+
+.pb0 {
+  padding-bottom: 0;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.m0 {
+  margin: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  //box-shadow: inset 0 0 5px @primaryLightGray;
+  background-color: @primaryBackground;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DEDEDE;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: @primaryLightGray;
 }

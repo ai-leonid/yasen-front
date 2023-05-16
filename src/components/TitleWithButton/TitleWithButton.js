@@ -6,7 +6,12 @@ import { QuestionIcon } from '../IconsCollection';
 
 
 export function TitleWithButton({
-  title, buttonIcon = <QuestionIcon />, onClickButton, className, style
+  title,
+  buttonIcon = <QuestionIcon />,
+  onClickButton,
+  className,
+  fontClass = 'font16-24-semi-bold',
+  style
 }) {
   const classes = [className, 'title-with-button'];
 
@@ -14,10 +19,14 @@ export function TitleWithButton({
     <div
       className={classes.join(' ')}
       style={{
-        display: 'flex', justifyContent: 'space-between', marginBottom: 20, ...style
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 20,
+        ...style
       }}
     >
-      <div className="font16-24-semi-bold">
+      <div className={`colorPrimaryBlack ${fontClass}`}>
         {title}
       </div>
       <Tooltip trigger="click" placement="left" title={title}>

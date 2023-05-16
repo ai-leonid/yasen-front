@@ -1,55 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
 
 import { Skeleton } from 'antd';
 import { Button } from '../../components/Button';
 import { WhiteBox } from '../../components/WhiteBox';
 import { TitleWithActions } from '../../components/TitleWithActions';
-import { PrintIcon, QuestionIcon } from '../../components/IconsCollection';
+import { PrintIcon } from '../../components/IconsCollection';
 
-import { BorderedBlock } from '../../components/BorderedBlock';
 import { StatisticInfoRow } from '../../components/StatisticInfoRow';
 import { TitleWithButton } from '../../components/TitleWithButton';
 import {
-  fireSituationList, panelsDistrictsKemerovoData,
-  panelsDistrictsKrasnoyarskData, panelsDistrictsTomskData, statisticInfoList,
+  panelsDistrictsKemerovoData,
+  panelsDistrictsKrasnoyarskData,
+  panelsDistrictsTomskData,
 } from '../../modules/fake-data';
 import { ImageCircle } from '../../components/ImageCircle';
 import { CardManagerInfo } from '../../components/CardManagerInfo';
+import { ChartBar } from '../../components/ChartBar';
 
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-const optionsChart = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'bottom',
-    },
-    title: {
-      display: true,
-      text: 'Лесовосстановление',
-    },
-  },
-  aspectRatio: 2.8,
-};
 
 export function PanelsDistrictPage() {
   const { panelsDistrict, panelsRegion } = useParams();
@@ -88,6 +56,7 @@ export function PanelsDistrictPage() {
     <div className="panels-page">
       <TitleWithActions
         title={districtInfo.title}
+        className="mb20"
         actions={(
           <Button
             type="primary"
@@ -111,8 +80,8 @@ export function PanelsDistrictPage() {
             alt="Карта"
           />
           <div style={{ marginLeft: 28 }}>
-            <p className="font12-16-regular">Описание</p>
-            <p className="font14-20-regular">{districtInfo.description}</p>
+            <p style={{ marginBottom: 8 }} className="font12-16-regular">Описание</p>
+            <p className="mb0 font14-20-regular">{districtInfo.description}</p>
           </div>
         </WhiteBox>
         <WhiteBox size="1-4">
@@ -122,7 +91,16 @@ export function PanelsDistrictPage() {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
         <WhiteBox size="1-2">
-          <Bar options={optionsChart} data={districtInfo.dataSource} />
+          <ChartBar
+            options={{
+              plugins: {
+                title: {
+                  text: 'Лесовосстановление',
+                },
+              },
+            }}
+            data={districtInfo.dataSource}
+          />
         </WhiteBox>
 
         <WhiteBox style={{ display: 'flex', flexDirection: 'column', marginLeft: 24 }} size="1-2">
@@ -130,7 +108,7 @@ export function PanelsDistrictPage() {
           {districtInfo.data.map((item, index) => (
             <StatisticInfoRow
               key={index}
-              type="value-info"
+              type="big-value-info"
               style={{
                 marginBottom: districtInfo.data.length !== index + 1 ? 22 : 0
               }}
@@ -144,10 +122,11 @@ export function PanelsDistrictPage() {
       <WhiteBox>
         <TitleWithButton title="Пожарная обстановка" />
 
-        {fireSituationList.map((item, index) => (
+        {districtInfo.fireSituations.map((item, index) => (
           <StatisticInfoRow
+            key={index}
             style={{
-              marginBottom: statisticInfoList.length !== index + 1 ? 16 : 0
+              marginBottom: districtInfo.fireSituations.length !== index + 1 ? 16 : 0
             }}
             info={item.info}
             value={item.value}

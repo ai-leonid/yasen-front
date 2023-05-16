@@ -1,0 +1,2 @@
+export { PanelsRentTableTab } from './PanelsRentTableTab';
+

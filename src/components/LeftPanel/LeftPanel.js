@@ -177,6 +177,7 @@ export function LeftPanel() {
         overflow: 'auto',
         height: '100vh',
         position: 'fixed',
+        zIndex: 20,
         left: 0,
         top: 0,
         bottom: 0,

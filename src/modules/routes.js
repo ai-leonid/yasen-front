@@ -7,12 +7,12 @@ import { PanelsDistrictPage } from '../containers/pages/PanelsDistrictPage';
 import { NotFound404Page } from '../containers/pages/NotFound404Page';
 import { LayoutMain } from '../components/LayoutMain';
 import { DataPage } from '../containers/pages/DataPage';
+import { DataAddFirePage } from '../containers/pages/DataAddFirePage';
 
 
 const routes = [
   {
     path: '/',
-    exact: true,
     element: <LayoutMain />,
     privateRoute: false,
     title: pageTitles.defaultPageTitle,
@@ -51,6 +51,13 @@ const routes = [
             title: pageTitles.defaultPageTitle,
           },
         ],
+      },
+      {
+        path: 'data/fires/add',
+        exact: true,
+        element: <DataAddFirePage />,
+        privateRoute: false,
+        title: pageTitles.defaultPageTitle,
       },
       /* {
         path: '*',

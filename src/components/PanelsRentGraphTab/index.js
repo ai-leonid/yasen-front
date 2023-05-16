@@ -1,0 +1,2 @@
+export { PanelsRentGraphTab } from './PanelsRentGraphTab';
+

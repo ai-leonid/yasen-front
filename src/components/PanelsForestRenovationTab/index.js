@@ -1,0 +1,2 @@
+export { PanelsForestRenovationTab } from './PanelsForestRenovationTab';
+

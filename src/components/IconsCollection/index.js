@@ -74,7 +74,6 @@ import { ReactComponent as Weather } from '../../assets/icons/weather.svg';
 import { ReactComponent as Widget } from '../../assets/icons/widget.svg';
 
 
-
 export const ThreeDIcon = (props) => <Icon component={ThreeD} {...props} theme="outlined" />;
 export const AddIcon = (props) => <Icon component={Add} {...props} theme="outlined" />;
 export const AddCircleIcon = (props) => <PlusCircleOutlined />;
@@ -102,7 +101,7 @@ export const LineChartIcon = (props) => <LineChartOutlined />;
 export const ListIcon = (props) => <UnorderedListOutlined />;
 export const LocationIcon = (props) => <EnvironmentOutlined />;
 export const LogoutIcon = (props) => <Icon component={Logout} {...props} theme="outlined" />;
-export const MailIcon = (props) => <Icon component={Mail} {...props} theme="outlined" />;;
+export const MailIcon = (props) => <Icon component={Mail} {...props} theme="outlined" />;
 export const MapIcon = (props) => <GlobalOutlined />;
 export const Map2Icon = (props) => <GlobalOutlined />;
 export const MinusIcon = (props) => <Icon component={Minus} {...props} theme="outlined" />;

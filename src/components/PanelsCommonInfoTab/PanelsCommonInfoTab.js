@@ -5,7 +5,6 @@ import { WhiteBox } from '../WhiteBox';
 import { BorderedBlock } from '../BorderedBlock';
 import { CountWithDescription } from '../CountWithDescription';
 import { TitleWithButton } from '../TitleWithButton';
-import { fireSituationList, statisticInfoList } from '../../modules/fake-data';
 import { StatisticInfoRow } from '../StatisticInfoRow';
 import { ImageCircle } from '../ImageCircle';
 import { CardManagerInfo } from '../CardManagerInfo';
@@ -36,8 +35,8 @@ export function PanelsCommonInfoTab({
             alt="Герб"
           />
           <div style={{ marginLeft: 28 }}>
-            <p className="font12-16-regular">Описание</p>
-            <p className="font14-20-regular">{infoData.description}</p>
+            <p style={{ marginBottom: 8 }} className="font12-16-regular">Описание</p>
+            <p className="mb0 font14-20-regular">{infoData.description}</p>
           </div>
         </WhiteBox>
         <WhiteBox size="1-4">
@@ -67,11 +66,11 @@ export function PanelsCommonInfoTab({
       <WhiteBox style={{ marginBottom: 20 }}>
         <TitleWithButton title="Статистическая информация" />
 
-        {statisticInfoList.map((item, index) => (
+        {infoData.statisticInfo.map((item, index) => (
           <StatisticInfoRow
             key={index}
             style={{
-              marginBottom: statisticInfoList.length !== index + 1 ? 16 : 0
+              marginBottom: infoData.statisticInfo.length !== index + 1 ? 16 : 0
             }}
             info={item.info}
             value={item.value}
@@ -83,11 +82,11 @@ export function PanelsCommonInfoTab({
       <WhiteBox>
         <TitleWithButton title="Пожарная обстановка" />
 
-        {fireSituationList.map((item, index) => (
+        {infoData.fireSituations.map((item, index) => (
           <StatisticInfoRow
             key={index}
             style={{
-              marginBottom: statisticInfoList.length !== index + 1 ? 16 : 0
+              marginBottom: infoData.fireSituations.length !== index + 1 ? 16 : 0
             }}
             info={item.info}
             value={item.value}
